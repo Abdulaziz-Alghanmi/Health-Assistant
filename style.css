@@ -3,7 +3,7 @@ body {
 }
 
 .mobile-container {
-  max-width: 480px;
+  max-width: 100%;
   margin: auto;
   background-color: rgb(66, 92, 131);
   height: auto;
@@ -39,7 +39,7 @@ body {
 }
 
 .active {
-  background-color: rgb(35, 35, 144);
+  background-color:  rgb(66, 92, 131);
   color: white;
 }
 #AboutUs{
@@ -88,7 +88,7 @@ margin: auto;
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active1,
 .faq-page:hover {
-  background-color: #F9F9F9;
+  background-color: black;
 }
 /* Style the faq-page panel. Note: hidden by default */
 .faq-body {
@@ -100,7 +100,7 @@ margin: auto;
   content: '\02795';
   /* Unicode character for "plus" sign (+) */
   font-size: 13px;
-  color: #777;
+  color: black;
   float: right;
   margin-left: 5px;
 }
