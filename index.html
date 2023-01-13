@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>+
+  <title>Health Assistant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="style.css" rel="stylesheet">
+<link rel="icon" href="logo.png" type="image/x-icon">
+</head>
+<body onload="T()">
+
+<!-- Simulate a smartphone -->
+<div class="mobile-container">
+
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <a href="#home" class="active">Health Assistant</a>
+  <div id="myLinks">
+    <a href="">Illnesses</a>
+    <a href="#AboutUs">About Us</a>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div style="padding:5px">
+  <br>
+  <img style="margin-left:2px" src="logo.png" alt="Health Assistant Logo" width="450" height="150">
+  <h3>Health Assistant</h3>
+  <p>Health Assistant, concern with human health only, it give recommndations to the user for 
+    better health and if the user face illness or problem can chat with the chatbot 
+    to figure out solution.</p>
+  <!--<p> Developed By Abdulaziz Al-Ghanmi, Rakan Al-Amri and Musa Al-Sulami</p>
+  <p>Supervised By Dr. Morshed Derbali</p>-->
+  <p><strong></strong></p>
+</div>
+
+<br>
+<!-- Chatbot Guide-->
+<div style="padding-left:5px">
+    <h3 class="faq-page">Chatbot</h3>
+   <div class="faq-body">
+    <br>
+    <img style="margin-left: 1.9cm;" src="Chatbot.png" alt="Chatbot in action" width="300px" height="600px">
+  
+  <p>Chatbot interact with the user by voice and text, and the user also can talk with the bot and chat with him. The Chatbot gives recommendations and the best treatment of the most common illness.
+  </p>
+</div></div>
+<br>
+<!-- Profile Guide-->
+<div style="padding:5px">
+    <h3 class="faq-page">Profile</h3>
+    <div class="faq-body">
+    <br>
+        <img style="margin-left: 2.5cm; border-radius: 15%;" src="prof.png" alt="Profile Icon" width="250px" height="250px">
+  <p>A profile contains a brief description of a person basic informations like, name, age.</p>
+</div></div>
+<br>
+<!-- Temperatures Guide-->
+<div style="padding:5px">
+    <h3 class="faq-page">Temperatures</h3>
+    
+ <div class="faq-body">
+    <br>
+    <img style="margin-left: 2.5cm; border-radius: 15%;" src="temp.png" alt="Temperatures Icon" width="250px" height="250px">
+    <p>Measureing the body-temperature and display it at the same time!. You can save the current reading by clicking on <strong>Save Record</strong> button.</p>
+  <img style="margin-left: 2cm;" src="tempRecord.png" alt="Temperatures readings" width="300px" height="600px">
+<p>View your Temperatures record history by clicking on <strong>Show Record</strong> button.</p>
+</div></div>
+<br>
+
+<!-- Heartbeat Guide-->
+<div style="padding:5px">
+    <h3 class="faq-page">HeartBeat</h3>
+  <div class="faq-body">
+  <br>
+    <img style="margin-left: 2.5cm; border-radius: 15%;" src="hb.png" alt="HeartBeat Icon" width="250px" height="250px">
+  <p>Measureing the heartbeat of the human by putting your fingers on the sensors to display your heartbeat readings and save it by clicking on
+     <strong>Save Record</strong> button. View your analyzed heartbeat reading by clicking on <strong>Show Record</strong> button.</p>
+  <img style="margin-left: 2cm;" src="hbR.png" alt="HeartBeat record" width="300px" height="600px">
+  <p>In <strong>Show Record</strong> there is a graph that analyzes your heartbeat readings and shows if heartbeat are low, normal or high.</p>
+</div></div>
+
+<br><br>
+
+<!-- BMI Guide-->
+<div style="padding:5px">
+    <h3 class="faq-page">Body Mass Index</h3>
+  <div class="faq-body">
+   <br>
+    <img style="margin-left: 2.5cm; border-radius: 15%;" src="bmi.png" alt="BMI Icon" width="250px" height="250px">
+  <p>Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women. You can calucalate your BMI by clicking on the BMI icon </p>
+</div></div>
+
+<br><br>
+
+<!-- Blood Pressure Guide-->
+<div style="padding:5px">
+    <h3 class="faq-page">Blood Pressure</h3>
+  <div class="faq-body">
+   <br> <img style="margin-left: 2.5cm; border-radius: 15%;" src="bp.png" alt="Blood Pressure Icon" width="250px" height="250px">
+  <p>Is the pressure of circulating blood against the walls of blood vessels. You can enter your blood pressure by clicking on <strong>blood pressure</strong> icon </p>
+</div></div>
+<br><br>
+
+<!-- Blood sugar Guide-->
+<div style="padding:5px">
+    <h3 class="faq-page">Blood Sugar</h3>
+  <div class ="faq-body">
+    <br><img style="margin-left: 2.5cm; border-radius: 15%;" src="bs.png" alt="Blood sugar Icon" width="250px" height="250px">
+  <p>Is the main sugar found in your blood. It comes from the food you eat, and is your body's main source of energy. 
+    You can enter your blood sugar level by clicking on <strong>blood pressure</strong> icon </p>
+</div></div>
+
+<br><br>
+
+<!-- Liter of Water Guide-->
+<div style="padding:5px">
+    <h3 class="faq-page">Liter Of Water</h3>
+    <div class="faq-body">
+  <br><img style="margin-left: 2.5cm; border-radius: 15%;" src="LW.png" alt="LoW Icon" width="250px" height="250px">
+  <p>You can enter the amount of water you drinked for one day.</p>
+</div></div>
+
+<br><br>
+
+<!-- Walking KM Guide-->
+<div style="padding:5px">
+    <h3 class="faq-page">Walking</h3>
+ <div class="faq-body">
+   <br> <img style="margin-left: 2.5cm; border-radius: 15%;" src="km.png" alt="Walking KM Icon" width="250px" height="250px">
+  <p>You can enter the walking distance you walked per day.</p>
+</div></div>
+<br><br>
+<div id="AboutUs" style="padding:10px" >
+  <br>
+  <h3>AboutUs</h3>
+<p>Health Assistant is bulit by Musa Al-Sulami, Abdulaziz Al-Ghanmi and Rakan Al-Amri</p>
+<p>Supervised By Dr. Morshed Derbali </p>
+<br><br>
+</div>
+<!-- End smartphone / tablet look -->
+</div>
+
+
+<script src="JS.js"></script>
+</body>
+</html>
