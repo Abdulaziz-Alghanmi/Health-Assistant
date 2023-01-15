@@ -2,9 +2,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-p{
+div div p{
   font-family: 'Times New Roman', Times, serif;
   font-size: small;
+  padding: 20px;
 }
 .mobile-container {
   max-width: 115%;
@@ -123,7 +124,7 @@ margin: auto;
   background-repeat: no-repeat;
   width: 80%;
   font-size: 16px;
-  margin-left: 5px;
+  margin-left: 1cm;
   padding: 15px 15px 15px 50px;
   border-radius: 25px;
 }
