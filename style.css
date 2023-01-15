@@ -2,6 +2,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+p{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: small;
+}
 .mobile-container {
   max-width: 100%;
   margin: auto;
@@ -68,31 +72,35 @@ margin: auto;
 /* Style the buttons that are used to open and close the faq-page body */
 .faq-page {
   /* background-color: #eee; */
-  color: white;
+  color: black;
   cursor: pointer;
   padding: 30px 20px;
   width: 85%;
   border: none;
+  border-radius: 25px;
   outline: none;
   transition: 0.4s;
   margin: auto;
-  background-color: #777;
+  background-color: white;
 }
 .faq-body{
   margin: auto;
   /* text-align: center; */
- width: 90%; 
+ width: 85%; 
  justify-content: center;
+ border-radius: 25px;
+ color: black;
+ padding: 5px;
  
 }
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active1,
 .faq-page:hover {
-  background-color: black;
+  background-color: rgb(207, 203, 203);
 }
 /* Style the faq-page panel. Note: hidden by default */
 .faq-body {
-  background-color: rgb(35, 35, 144);
+  background-color: rgb(255, 255, 255);
   display: none;
   overflow: hidden;
 }
