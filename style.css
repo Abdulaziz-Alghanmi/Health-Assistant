@@ -119,11 +119,11 @@ margin: auto;
 
 #searchBar{
   background-image: url('search.png');
-  background-position: 15px 20px;
+  background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 80%;
   font-size: 16px;
-  margin-left: 5.2cm;
-  padding: 25px 30px 30px 50px;
+  margin-left: 1cm;
+  padding: 15px 15px 15px 50px;
   border-radius: 25px;
 }
