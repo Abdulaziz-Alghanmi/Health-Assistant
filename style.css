@@ -88,12 +88,9 @@ margin: auto;
   margin: auto;
   /* text-align: center; */
  width: 85%;
- height: 50%; 
  justify-content: center;
  border-radius: 25px;
- color: black;
- padding: 5px;
- 
+ color: black; 
 }
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active1,
@@ -117,4 +114,16 @@ margin: auto;
 .active1:after {
   content: "\2796";
   /* Unicode character for "minus" sign (-) */
+}
+
+
+#searchBar{
+  background-image: url('search.png');
+  background-position: 15px 20px;
+  background-repeat: no-repeat;
+  width: 80%;
+  font-size: 16px;
+  margin-left: 5.2cm;
+  padding: 25px 30px 30px 50px;
+  border-radius: 25px;
 }
