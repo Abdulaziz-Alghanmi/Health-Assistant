@@ -1,12 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
-div div p{
-  font-family: 'Times New Roman', Times, serif;
-  font-size: small;
-  padding: 20px;
-}
 .mobile-container {
   max-width: 115%;
   margin: auto;
@@ -47,6 +41,12 @@ div div p{
   background-color:  rgb(66, 92, 131);
   color: white;
 }
+
+
+.styling{
+  font-size:x-large;
+  font-family: 'Times New Roman', Times, serif;
+}
 #AboutUs{
   background-color: rgb(66, 92, 131);
 }
@@ -84,8 +84,12 @@ margin: auto;
   transition: 0.4s;
   margin: auto;
   background-color: white;
+  font-size: small;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
 }
 .faq-body{
+  padding: 5px;
   margin: auto;
   /* text-align: center; */
  width: 85%;
