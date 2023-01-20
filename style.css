@@ -135,8 +135,9 @@ margin: auto;
   width: 80%;
   font-size: 16px;
   margin-left: 1cm;
-  padding: 15px 15px 15px 50px;
+  padding: 15px 15px 15px 10px;
   border-radius: 25px;
+  text-align: center;
 }
 
 
@@ -146,8 +147,8 @@ margin: auto;
 
 
 #users-list{
-  margin :0;
-  padding:15px 15px 15px 40px;
+  margin :0px;
+  padding: 10px 15px 15px 50px;
 }
 
 #users-list li{
