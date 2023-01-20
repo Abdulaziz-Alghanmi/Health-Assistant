@@ -52,7 +52,12 @@ body {
 }
 
 
-
+.des{
+  padding: 10px;
+  font-size: small;
+  font-weight: lighter;
+  font-family: 'Times New Roman', Times, serif;
+}
 
 
 
@@ -89,13 +94,14 @@ margin: auto;
   font-family: 'Times New Roman', Times, serif;
 }
 .faq-body{
-  padding: 5px;
+  padding: auto;
   margin: auto;
   /* text-align: center; */
  width: 85%;
  justify-content: center;
  border-radius: 25px;
  color: black; 
+ 
 }
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active1,
@@ -130,5 +136,26 @@ margin: auto;
   font-size: 16px;
   margin-left: 1cm;
   padding: 15px 15px 15px 50px;
+  border-radius: 25px;
+}
+
+
+
+
+
+
+
+#users-list{
+  margin :0;
+  padding:15px 15px 15px 40px;
+}
+
+#users-list li{
+  list-style:none;
+  padding:20px;
+  margin: 5px;
+  border: 1px solid #e4e4e4;
+  background-color: white;
+  color: black;
   border-radius: 25px;
 }

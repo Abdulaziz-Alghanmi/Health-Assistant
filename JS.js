@@ -44,3 +44,48 @@ function myFunction() {
         }
     }
 }
+
+
+
+///////////////////////////////////////////////////
+
+function f(){
+var users = [
+    'Panic disorder',
+    'Vocal cord polyp',
+    'Turner syndrome',
+    'Cryptorchidism',
+    'Poisoning due to ethylene glycol',
+    'Atrophic vaginitis',
+    'Fracture of the hand',
+    'Cellulitis or abscess of mouth'
+  ];
+  
+  ul = document.getElementById("users-list");
+  
+  var render_lists = function(lists){
+    var li = "";
+    for(index in lists){
+      li += "<li>" + lists[index] + "</li>";
+    }
+    ul.innerHTML = li;
+  }
+  
+  render_lists(users);
+  
+  // lets filters it
+  input = document.getElementById("searchBar");
+  
+  var filterUsers = function(event){
+    keyword = input.value.toLowerCase();
+    filtered_users = users.filter(function(user){
+          user = user.toLowerCase();
+         return user.indexOf(keyword) > -1; 
+    });
+    
+    render_lists(filtered_users);
+  }
+  
+  input.addEventListener('keyup', filterUsers);
+  
+}

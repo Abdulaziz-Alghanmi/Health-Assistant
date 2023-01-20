@@ -6,8 +6,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="style.css" rel="stylesheet">
 <link rel="icon" href="logo.png" type="image/x-icon">
+<script src="JS.js"></script>
 </head>
-<body>
+<body onload="f()">
 
 <!-- Simulate a smartphone -->
 <div class="mobile-container">
@@ -17,7 +18,7 @@
   <a href="index.html" class="active">Health Assistant</a>
   <div >
     <a href="Illnesses.html">Illnesses</a>
-    <a href="#AboutUs">About Us</a>
+    <a href="#AboutUs" >About Us</a>
   </div>
   <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -25,10 +26,13 @@
 </div>
 <br><br>
 <div style="padding:10px">
-    <h3>Illnesses That Our Application Support</h3>
+    <h3 style="margin-left: 25px;">Illnesses Health Assistant Support</h3>
 <form id="form"> 
-    <input type="search" id="searchBar" name="q" placeholder="Search...">
+    <input type="text" id="searchBar" name="q" placeholder="Search...">
     
+    <ul id="users-list">
+
+    </ul>
   </form>
 </div>
 <div id="AboutUs" style="padding:10px" >
