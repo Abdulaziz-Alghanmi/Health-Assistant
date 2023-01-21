@@ -27,65 +27,105 @@ function myFunction() {
     }
   }
 
+ 
 
-  function filterSearch() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
+  const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
+const resultsContainer = document.getElementById("results");
+const paginationContainer = document.getElementById("pagination");
+
+const ITEMS_PER_PAGE = 10;
+let currentPage = 1;
+let filteredResults = [];
+
+searchForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+  search();
+});
+
+function search() {
+  // get the search query from the input field
+  const query = searchInput.value;
+
+  // fetch the text file containing the data
+  fetch("sick.txt")
+    .then(response => response.text())
+    .then(data => {
+      // split the data into an array of lines
+      const lines = data.split("\n");
+
+      // filter the lines that start with the search query
+      filteredResults = lines.filter(line => line.startsWith(query));
+
+      // display the results
+      displayResults();
+    });
 }
 
+function displayResults() {
+  // clear the previous results
+  resultsContainer.innerHTML = "";
 
+  // determine the start and end index for the current page
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
 
-///////////////////////////////////////////////////
+  // loop through the results for the current page
+  for (let i = startIndex; i < endIndex; i++) {
+    if (filteredResults[i]) {
+      // create a new element to display the result
+      const resultElement = document.createElement("div");
+      resultElement.innerText = filteredResults[i];
+      // add the result to the results container
+      resultsContainer.appendChild(resultElement);
+    }
+  }
+
+  // create and display the pagination buttons
+  createPaginationButtons();
+}
+function createPaginationButtons() {
+  // clear the previous pagination buttons
+  paginationContainer.innerHTML = "";
+
+  // calculate the number of pages
+  const numberOfPages = Math.ceil(filteredResults.length / ITEMS_PER_PAGE);
+
+  // create a button for each page
+  for (let i = 1; i <= numberOfPages; i++) {
+    const button = document.createElement("button");
+    button.innerText = i;
+    button.classList.add("pagination-button");
+    button.addEventListener("click", function() {
+      currentPage = i;
+      displayResults();
+    });
+    paginationContainer.appendChild(button);
+  }
+}
 
 function f(){
-var users = [
-    'Panic disorder',
-    'Vocal cord polyp',
-    'Turner syndrome',
-    'Cryptorchidism',
-    'Poisoning due to ethylene glycol',
-    'Atrophic vaginitis',
-    'Fracture of the hand',
-    'Cellulitis or abscess of mouth'
-  ];
+  const dataList = document.getElementById("users-list");
+  const searchInput = document.getElementById("searchBar");
   
-  ul = document.getElementById("users-list");
+  // Retrieve data from file
+  fetch("sick.txt")
+    .then(response => response.text())
+    .then(data => {
+      const dataArray = data.split("\n");
   
-  var render_lists = function(lists){
-    var li = "";
-    for(index in lists){
-      li += "<li>" + lists[index] + "</li>";
-    }
-    ul.innerHTML = li;
-  }
+      // Filter data based on search input
+      searchInput.addEventListener("input", event => {
+        const searchTerm = event.target.value.toLowerCase();
+        const filteredData = dataArray.filter(item => item.toLowerCase().startsWith(searchTerm));
   
-  render_lists(users);
-  
-  // lets filters it
-  input = document.getElementById("searchBar");
-  
-  var filterUsers = function(event){
-    keyword = input.value.toLowerCase();
-    filtered_users = users.filter(function(user){
-          user = user.toLowerCase();
-         return user.indexOf(keyword) > -1; 
+        // Populate data list with filtered data
+        dataList.innerHTML = "";
+        filteredData.forEach(item => {
+          const listItem = document.createElement("li");
+          listItem.textContent = item;
+          dataList.appendChild(listItem);
+        });
+      });
     });
-    
-    render_lists(filtered_users);
-  }
-  
-  input.addEventListener('keyup', filterUsers);
-  
 }

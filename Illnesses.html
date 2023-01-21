@@ -8,6 +8,9 @@
 <link rel="icon" href="logo.png" type="image/x-icon">
 <script src="JS.js"></script>
 </head>
+
+
+
 <body onload="f()">
 
 <!-- Simulate a smartphone -->
@@ -27,13 +30,22 @@
 <br><br>
 <div style="padding:10px">
     <h3 style="margin-left: 25px;">Illnesses Health Assistant Support</h3>
-<form id="form"> 
-    <input type="text" id="searchBar" name="q" placeholder="Search...">
     
-    <ul id="users-list">
-
-    </ul>
-  </form>
+ 
+    
+    <form id="form"> 
+      <input type="text" id="searchBar" name="q" placeholder="Search...">
+      
+    <ul id="users-list"></ul>
+    </form>
+    <!-- <form id="search-form">
+      <input type="text" id="search-input" placeholder="Search...">
+      <button type="submit" id="search-button" onclick="search()">Search</button>
+    </form>
+    <div id="results"></div>
+    <div id="pagination"></div>
+     -->
+    
 </div>
 <div id="AboutUs" style="padding:10px" >
     <br>
