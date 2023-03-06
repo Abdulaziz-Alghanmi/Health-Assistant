@@ -1,10 +1,9 @@
-function T(){
-var faq = document.getElementsByClassName("faq-page");
+function displayContent(){
+var faq = document.getElementsByClassName("guide-page");
 var i;
 for (i = 0; i < faq.length; i++) {
     faq[i].addEventListener("click", function () {
-        /* Toggle between adding and removing the "active" class,
-        to highlight the button that controls the panel */
+        /* To highlight the button that controls the panel */
         this.classList.toggle("active");
         /* Toggle between hiding and showing the active panel */
         var body = this.nextElementSibling;
@@ -18,114 +17,108 @@ for (i = 0; i < faq.length; i++) {
 }
 
 
-function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-  }
-
- 
-
-  const searchForm = document.getElementById("search-form");
-const searchInput = document.getElementById("search-input");
-const resultsContainer = document.getElementById("results");
-const paginationContainer = document.getElementById("pagination");
-
-const ITEMS_PER_PAGE = 10;
-let currentPage = 1;
-let filteredResults = [];
-
-searchForm.addEventListener("submit", function(event) {
-  event.preventDefault();
-  search();
-});
-
-function search() {
-  // get the search query from the input field
-  const query = searchInput.value;
-
-  // fetch the text file containing the data
-  fetch("sick.txt")
-    .then(response => response.text())
-    .then(data => {
-      // split the data into an array of lines
-      const lines = data.split("\n");
-
-      // filter the lines that start with the search query
-      filteredResults = lines.filter(line => line.startsWith(query));
-
-      // display the results
-      displayResults();
-    });
-}
-
-function displayResults() {
-  // clear the previous results
-  resultsContainer.innerHTML = "";
-
-  // determine the start and end index for the current page
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-
-  // loop through the results for the current page
-  for (let i = startIndex; i < endIndex; i++) {
-    if (filteredResults[i]) {
-      // create a new element to display the result
-      const resultElement = document.createElement("div");
-      resultElement.innerText = filteredResults[i];
-      // add the result to the results container
-      resultsContainer.appendChild(resultElement);
-    }
-  }
-
-  // create and display the pagination buttons
-  createPaginationButtons();
-}
-function createPaginationButtons() {
-  // clear the previous pagination buttons
-  paginationContainer.innerHTML = "";
-
-  // calculate the number of pages
-  const numberOfPages = Math.ceil(filteredResults.length / ITEMS_PER_PAGE);
-
-  // create a button for each page
-  for (let i = 1; i <= numberOfPages; i++) {
-    const button = document.createElement("button");
-    button.innerText = i;
-    button.classList.add("pagination-button");
-    button.addEventListener("click", function() {
-      currentPage = i;
-      displayResults();
-    });
-    paginationContainer.appendChild(button);
-  }
-}
-
-function f(){
-  const dataList = document.getElementById("users-list");
-  const searchInput = document.getElementById("searchBar");
+function filterData(){
+  //////////////////////////////////////////////////////////////////////////////
+  const dataList = document.getElementById("data");
+  const searchInput = document.getElementById("search");
+  const pagination = document.getElementById("pagination");
+  const itemsPerPage = 20;
   
+  let filteredData = [];
+  let currentPage = 1;
+ try { 
+    
+   
   // Retrieve data from file
   fetch("sick.txt")
     .then(response => response.text())
     .then(data => {
       const dataArray = data.split("\n");
-  
+    
       // Filter data based on search input
       searchInput.addEventListener("input", event => {
         const searchTerm = event.target.value.toLowerCase();
-        const filteredData = dataArray.filter(item => item.toLowerCase().startsWith(searchTerm));
-  
-        // Populate data list with filtered data
-        dataList.innerHTML = "";
-        filteredData.forEach(item => {
-          const listItem = document.createElement("li");
-          listItem.textContent = item;
-          dataList.appendChild(listItem);
-        });
+        filteredData = dataArray.filter(item => item.toLowerCase().startsWith(searchTerm));
+        currentPage = 1;
+        updateDataList();
+        updatePagination();
       });
+  
+      updateDataList();
+      updatePagination();
     });
+  }catch(error){
+    if (error.code === "ENOENT") {
+        console.error("File not found!");
+      } else {
+        throw error;
+      }
+  }
+  
+  function updateDataList() {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+  
+    dataList.innerHTML = "";
+    filteredData.slice(startIndex, endIndex).forEach(item => {
+      const listItem = document.createElement("li");
+      listItem.textContent = item;
+      dataList.appendChild(listItem);
+    });
+  }
+  
+  function updatePagination() {
+    pagination.innerHTML = "";
+    const pageCount = Math.ceil(filteredData.length / itemsPerPage);
+    let startPage = currentPage;
+    let endPage = currentPage + 3;
+
+       if(endPage > pageCount){
+        endPage = pageCount;
+        startPage = endPage - 4;
+    }
+
+    if(startPage < 1){
+        startPage = 1;
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+        const button = document.createElement("button");
+        button.textContent = i;
+        if (i === currentPage) {
+            button.classList.add("active");
+        }
+        button.addEventListener("click", event => {
+            currentPage = i;
+            updateDataList();
+            updatePagination();
+        });
+
+        pagination.appendChild(button);
+    }
+
+    if(currentPage > 1){
+        const prevButton = document.createElement("button");
+        prevButton.textContent = "<<";
+        prevButton.addEventListener("click", event => {
+            currentPage--;
+            updateDataList();
+            updatePagination();
+        });
+        pagination.insertBefore(prevButton, pagination.firstChild);
+    }
+    if(currentPage < pageCount){
+        const nextButton = document.createElement("button");
+        nextButton.textContent = ">>";
+        nextButton.addEventListener("click", event => {
+            currentPage++;
+            updateDataList();
+            updatePagination();
+        });
+        pagination.appendChild(nextButton);
+    }
 }
+
+}
+
+  ///////////////////////////////////////////////

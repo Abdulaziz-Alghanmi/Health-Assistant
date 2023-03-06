@@ -48,9 +48,16 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 #AboutUs{
-  background-color: rgb(66, 92, 131);
+  background-color:#333;
+  color: white;
+  
 }
 
+#AboutUs p{
+  font-size: 14px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 10px;
+}
 
 .des{
   padding: 10px;
@@ -60,23 +67,8 @@ body {
 }
 
 
-
-.faq-heading{
-  border-bottom: #777;
-  padding: 20px 60px;
-}
-.faq-container{
-display: flex;
-justify-content: center;
-flex-direction: column;
-}
-.hr-line{
-width: 60%;
-margin: auto;
-
-}
 /* Style the buttons that are used to open and close the faq-page body */
-.faq-page {
+.guide-page {
   /* background-color: #eee; */
   color: black;
   cursor: pointer;
@@ -93,7 +85,7 @@ margin: auto;
   font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
 }
-.faq-body{
+.guide-body{
   padding: auto;
   margin: auto;
   /* text-align: center; */
@@ -105,16 +97,16 @@ margin: auto;
 }
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active1,
-.faq-page:hover {
+.guide-page:hover {
   background-color: rgb(207, 203, 203);
 }
 /* Style the faq-page panel. Note: hidden by default */
-.faq-body {
+.guide-body {
   background-color: rgb(255, 255, 255);
   display: none;
   overflow: hidden;
 }
-.faq-page:after {
+.guide-page:after {
   content: '\02795';
   /* Unicode character for "plus" sign (+) */
   font-size: 13px;
@@ -128,51 +120,49 @@ margin: auto;
 }
 
 
-#searchBar{
+#search{
   background-image: url('search.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 80%;
   font-size: 16px;
-  margin-left: 1cm;
+  margin-left: 0.55cm;
   padding: 15px 15px 15px 10px;
   border-radius: 25px;
   text-align: center;
 }
 
-
-
-
-#search {
-  padding: 10px;
-  font-size: 16px;
-  border: solid 1px #ddd;
-  margin-bottom: 10px;
-  width: 300px;
+#data{
+  margin-left :0cm;
+  padding: 10px 15px 15px 20px;
 }
 
-#data {
-  list-style-type: none;
-  padding: 0;
-}
-
-#data li {
-  border-bottom: solid 1px #ddd;
-  padding: 10px;
-}
-
-
-#users-list{
-  margin :0px;
-  padding: 10px 15px 15px 50px;
-}
-
-#users-list li{
+#data li{
   list-style:none;
-  padding:20px;
+  padding:15px;
   margin: 5px;
   border: 1px solid #e4e4e4;
   background-color: white;
   color: black;
   border-radius: 25px;
+}
+
+#pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#pagination button {
+  padding: 15px;
+  font-size: 16px;
+  border: solid 1px #ddd;
+  margin-right: 5px;
+  background-color:  white;
+  color:  rgb(66, 92, 131);
+  border-radius: 10px;
+}
+
+#pagination .active {
+  background-color: rgb(200, 198, 198);
 }
